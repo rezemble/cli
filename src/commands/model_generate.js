@@ -21,6 +21,11 @@ exports.builder = (yargs) =>
         type: 'string',
         demandOption: false,
       })
+      .option('schema', {
+        describe: 'The Schema to create the new model in',
+        type: 'string',
+        demandOption: false,
+      })
   ).argv;
 
 exports.handler = function (args) {

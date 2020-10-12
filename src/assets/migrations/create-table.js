@@ -25,7 +25,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    });
+    }<%= schema ? `,
+    {
+      schema: '${schema}',
+    }` : '' %>);
   },
 
   down: async (queryInterface, Sequelize) => {

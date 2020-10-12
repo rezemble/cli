@@ -23,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: '<%= name %>',
     <%= underscored ? 'underscored: true,' : '' %>
+    <%= schema ? `schema: '${schema}',` : '' %>
   });
 
   return <%= name %>;
