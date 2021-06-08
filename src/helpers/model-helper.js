@@ -56,8 +56,19 @@ function formatAttributes(attribute) {
           .join(', '),
       };
     }
+  } else if (split.length === 4) {
+    const [references, schema = 'public'] = split[2].split('@')
+    result = {
+      fieldName: split[0],
+      dataType: split[1],
+      dataFunction: null,
+      dataValues: null,
+      key: split[3],
+      references,
+      schema,
+    }
   }
-
+  
   return result;
 }
 
@@ -118,7 +129,6 @@ module.exports = {
 
   generateFile(args) {
     const modelPath = helpers.path.getModelPath(args.name);
-
     helpers.asset.write(modelPath, this.generateFileContent(args));
   },
 
